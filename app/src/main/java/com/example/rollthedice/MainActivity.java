@@ -1,16 +1,15 @@
 package com.example.rollthedice;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.util.ArrayList;
+import android.view.Menu;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
         locateItems();
         leftImage.setImageResource(R.drawable.dice_side_1);
         rightImage.setImageResource(R.drawable.dice_side_6);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     private void locateItems() {
@@ -110,5 +114,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearHistory(View view) {
         horizontalLayout.removeAllViews();
+    }
+
+    public void exitApp(MenuItem item) {
+        this.finish();
     }
 }
